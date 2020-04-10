@@ -1,0 +1,74 @@
+<html>
+	<head>
+		<title>Zad 4</title>
+		<meta Charset="Utf-8">
+		<style type="text/css">
+		* {
+				margin: 0 auto;
+				
+			}
+			#strona {
+				width: 300px;
+				margin-top: 100px;
+				background-color: rgb(94, 245, 152);
+			}
+		</style>
+	</head>
+	<body>		
+		<div id="strona">
+			<h1>Zaloguj sie</h1>
+			<style type="text/css">
+			*{
+				font-family: "Times New Roman";
+				}
+				</style>
+			<form id="form">
+				Imię <input type="text" id="imie"><br>
+				Nazwisko <input type="text" id="nazwisko"><br>
+				E-mail <input type="text" id="mail"><br>
+				
+				
+				</style>
+			</form>				
+			<input type="submit" id="button" value="Weryfikuj">
+
+			<div id="result">
+			</div>
+		</div>
+		<script>
+			document.getElementById("button").addEventListener("click", check);
+			
+			const name = document.getElementById("imie");
+			const username = document.getElementById("nazwisko");
+			const email = document.getElementById("mail");
+
+			function check() {	
+				const result = document.getElementById("result");
+				result.innerHTML = "";
+
+				const valueName = name.value;
+				const reg1 = /^[A-Z]{1}[^\s]+$/i;
+				if (reg1.test(valueName)) {
+					result.innerHTML += "Imię jest poprawnie<br>";
+				}else{
+					result.innerHTML += "Imię nie spelnia warunkow.<br>"
+				}
+				const valueUsername = username.value;
+				if (reg1.test(valueUsername)) {
+					result.innerHTML += "Nazwisko jest poprawnie<br>";
+
+				}else{
+					result.innerHTML += "Nazwisko nie spelnia warunkow.<br>"
+				}			
+				const valueMail = email.value;
+				const reg2 = /^[-\w\.]+@([-\w]+\.)+[a-z]+$/i;
+				if (reg2.test(valueMail)) {
+					result.innerHTML += "E-mail jest poprawny<br>";
+				}else{
+					result.innerHTML += "E-mail nie spelnia warunkow."
+				}
+				
+			}
+		</script>
+	</body>
+</html>
